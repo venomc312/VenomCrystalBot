@@ -1,0 +1,17 @@
+name: vsbot
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  discordcrtest:
+    main: src/discordcrtest.cr
+
+crystal: 1.0.0
+
+license: MIT
+
+dependencies:
+  discordcr:
+    github: shardlab/discordcr
