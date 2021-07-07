@@ -21,36 +21,26 @@ end
 
 Discord.client.on_message_create do |payload|
 
-  if payload.content.starts_with?(prefix)
-    args = payload.content.split()
-    cmdname = args[0].gsub(prefix, "")
+  if payload.author.id != 856084704725303297
 
-    if Discord.commands.has_key?(cmdname)
-      puts "Command in cmd array!"
-      puts "Running command: #{cmdname}"
+    if payload.content.starts_with?(prefix)
+      args = payload.content.split()
+      cmdname = args[0].gsub(prefix, "")
 
-      spawn name: "cmd" do
-          Discord.commands[cmdname].call(payload)
+      if Discord.commands.has_key?(cmdname)
+        puts "Command in cmd array!"
+        puts "Running command: #{cmdname}"
+
+        spawn name: "cmd" do
+            Discord.commands[cmdname].call(payload)
+        end
+
+      else
+        puts "Command not in cmd array!  Was it properly added?"
+        next
       end
-
-    else
-      puts "Command not in cmd array!  Was it properly added?"
-      next
     end
-
-    # if args[0].includes?("test")
-    #  client.create_message(payload.channel_id, "Response")
-    #end
-
-    # if args[0].includes?("ping")
-    #  m = client.create_message(payload.channel_id, "Pong!")
-    #  time = Time.utc - payload.timestamp
-    #  client.edit_message(m.channel_id, m.id, "Pong! #{time.total_milliseconds} ms.")
-    #end
-
-    pp args
   end
-
 end
 
 spawn name: "discord" do
