@@ -1,5 +1,4 @@
 require "./discord"
-require "./websocket"
 
 
 

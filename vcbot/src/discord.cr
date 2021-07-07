@@ -16,7 +16,7 @@ end
 
 # This event isn't being triggered and I don't know why :(
 Discord.client.on_guild_member_add do |payload|
-    puts Discord.client.add_guild_member_role(guild_id: 850173983806849034.to_u64, user_id: payload.user.id, role_id: 861485216375242772.to_u64)
+  Discord.client.add_guild_member_role(guild_id: 850173983806849034.to_u64, user_id: payload.user.id, role_id: 861485216375242772.to_u64)
 end
 
 Discord.client.on_message_create do |payload|

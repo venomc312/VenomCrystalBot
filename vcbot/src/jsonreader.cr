@@ -1,4 +1,4 @@
-record Config, token : String, wsport : Int32, prefix : String, wsadd : String do
+record Config, token : String, prefix : String do
     include JSON::Serializable
   end
   
