@@ -21,7 +21,7 @@ end
 
 Discord.client.on_message_create do |payload|
 
-  if payload.author.id != 856084704725303297
+  if payload.author.id != 856084704725303297.to_u64
 
     if payload.content.starts_with?(prefix)
       args = payload.content.split()
