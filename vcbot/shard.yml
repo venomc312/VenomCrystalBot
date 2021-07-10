@@ -5,8 +5,8 @@ authors:
   - your-name-here <your-email-here>
 
 targets:
-  discordcrtest:
-    main: src/discordcrtest.cr
+  venombot:
+    main: src/venombot.cr
 
 crystal: 1.0.0
 
