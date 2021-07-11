@@ -9,5 +9,6 @@ module Commands
         time = Time.utc - payload.timestamp
         Discord.client.edit_message(m.channel_id, m.id, "Pong! Time taken: #{time.total_milliseconds} ms.")
     end
+    Discord.cmdinfo["ping"] = "Replies with the ping of the bot"
     Discord.commands["ping"] = ->ping(Discord::Message)
 end

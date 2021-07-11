@@ -24,5 +24,6 @@ module Commands
             ))
         end
     end
+    Discord.cmdinfo["status"] = "Replies with the status of all current registered servers"
     Discord.commands["status"] = ->status(Discord::Message)
 end

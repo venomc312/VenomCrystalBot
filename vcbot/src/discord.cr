@@ -9,6 +9,7 @@ prefix = JSONReader.test.prefix
 module Discord
   class_getter client : Discord::Client {Discord::Client.new(token: "Bot #{JSONReader.test.token}")}
   class_getter commands : Hash(String, Proc(Discord::Message, Nil)) { Hash(String, Proc(Discord::Message, Nil)).new }
+  class_getter cmdinfo : Hash(String, String) { Hash(String, String).new }
 end
 
 # This event will only be triggered with server member intents enabled
