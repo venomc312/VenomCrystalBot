@@ -25,6 +25,7 @@ module Commands
             ))
         end
 
+        # The API for this only caches every two minutes, the response will be delayed. (https://mcapi.us/server/status?ip=mc1.venomc312.com)
         if response1.body.includes?("true")
             json = JSON.parse(response1.body)
             players = json["players"]
