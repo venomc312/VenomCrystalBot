@@ -12,3 +12,5 @@ module Commands
     Discord.cmdinfo["ping"] = "Replies with the ping of the bot"
     Discord.commands["ping"] = ->ping(Discord::Message)
 end
+
+# This is the default ping command listed on the docs of crystalcr

@@ -1,3 +1,5 @@
+# An example of what this does can be found in ./commands/help.cr, used in embeds to create a color from RGB.
+
 require "json"
 
 struct Color

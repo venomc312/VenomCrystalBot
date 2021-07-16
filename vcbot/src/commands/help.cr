@@ -9,6 +9,9 @@ module Commands
         desc = String.new()
 
         Discord.cmdinfo.each do |var|
+            if (var[0] == "example") # Makes it so the example command doesn't show up in the help message
+                next
+            end
             desc = desc + "**#{var[0]}** - #{var[1]} \n"
         end
 

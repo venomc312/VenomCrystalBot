@@ -26,6 +26,11 @@ Discord.client.on_message_create do |payload|
       cmdname = args[0].gsub(prefix, "")
 
       if Discord.commands.has_key?(cmdname)
+
+        if (cmdname == "example") # Makes sure the example command file does not run.
+          next
+        end
+
         puts "\nCommand in cmd array!\nRunning command: #{cmdname}\nRan by #{payload.author.username} on server-id #{payload.guild_id}\n "
 
         spawn name: "cmd" do

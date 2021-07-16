@@ -7,12 +7,13 @@ require "http/client"
 module Commands
     extend self
     def status(payload) : Nil
-        response = HTTP::Client.get "http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr=69.30.205.147&format=json"
-        response1 = HTTP::Client.get "https://mcapi.us/server/status?ip=mc1.venomc312.com"
+        response = HTTP::Client.get "https://superstormchasing.net/server-content/a2s-status/status.php?ip=69.30.205.147:27015" # a2s Query (Garry's Mod Server)
+        response1 = HTTP::Client.get "https://mcapi.us/server/status?ip=mc1.venomc312.com" # MC-Query API (Minecraft Server)
         if response.body.includes?("garrysmod")
+            json = JSON.parse(response.body)
             Discord.client.create_message(payload.channel_id, "", Discord::Embed.new(
                 title: "Venom's Train Build",
-                description: "Online",
+                description: "Players: " + json["Players"].to_s + "/" + json["MaxPlayers"].to_s + "\n\n_Ver. " + json["Version"].to_s + "_",
                 timestamp: Time.utc,
                 colour: Color.new(0,255,81).to_u
             ))
