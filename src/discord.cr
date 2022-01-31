@@ -33,6 +33,7 @@ Discord.client.on_message_create do |payload|
 
         puts "\nCommand in cmd array!\nRunning command: #{cmdname}\nRan by #{payload.author.username} on server-id #{payload.guild_id}\n "
 
+        # This is a bad way to do this.  Though it was one of few solutions.
         spawn name: "cmd" do
             Discord.commands[cmdname].call(payload)
         end
